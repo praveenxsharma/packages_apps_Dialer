@@ -31,11 +31,13 @@ jobs:
         run: |
           sdkmanager "platforms;android-36" "build-tools;36.0.0"
 
-      - name: Grant Gradle execute permission
-        run: chmod +x gradlew
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v3
+        with:
+          gradle-version: '8.7'
 
       - name: Build debug APK
-        run: ./gradlew assembleDebug --stacktrace
+        run: gradle assembleDebug --stacktrace
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
