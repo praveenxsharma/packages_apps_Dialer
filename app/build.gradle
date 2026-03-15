@@ -10,15 +10,17 @@ android {
         minSdkVersion 35
         targetSdkVersion 36
     }
-
-    sourceSets {
-        main {
-            manifest.srcFile '../AndroidManifest.xml'
-            java.srcDirs = ['../java']
-            res.srcDirs = ['../java/com/android/dialer/res']
-            assets.srcDirs = ['../assets']
-        }
+sourceSets {
+    main {
+        manifest.srcFile '../AndroidManifest.xml'
+        java.srcDirs = ['../java']
+        res.srcDirs = [
+            '../res',              
+            '../java/com/android/dialer/res'
+        ]
+        assets.srcDirs = ['../assets']
     }
+}
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
